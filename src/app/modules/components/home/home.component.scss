@@ -1,0 +1,37 @@
+
+
+.grid
+ {
+   background-image: url( '../../../../assets/sean-pollock-PhYq704ffdA-unsplash.jpg') !important;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-position: center;
+   height: 100vmin;
+   display: flex;
+   justify-content: center;
+   align-content: center;
+ }
+
+@media screen and (min-width: 1400px) {
+      .grid{
+        background-position: top;
+      }
+}
+
+.p-card .p-card-body {
+ height: 600px;
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.input-grande
+{
+  width: 90%;
+}
+
