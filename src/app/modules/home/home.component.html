@@ -1,0 +1,92 @@
+<div class="grid">
+  <div class="col-14">
+    <div class="container">
+
+      <!--Login-->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmitLoginForm()">
+         <p-card styleClass="mt-10" header="Login" subheader="Faça login com sua Conta Existente!"
+           *ngIf="loginCard"
+         >
+         <div class="flex justify-content-center align-content-center text-align-center">
+          <input formControlName="email" type="email" name="email" pInputText placeholder="Email" class="input-grande">
+        </div>
+
+        <div *ngIf="loginForm.get('email')?.errors?.['required'] && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)"
+        class="text-red-600 font-semibold">
+           Email é obrigatório.
+        </div>
+
+       <div *ngIf="loginForm.get('email')?.errors?.['email'] && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)"
+               class="text-red-600 font-semibold">
+           Email deve ser um endereço de email válido.
+       </div>
+
+
+         <div class="flex justify-content-center align-content-center text-align-center mt-3">
+          <input formControlName="password" type="password" name="senha" pInputText placeholder="Senha" class="input-grande">
+         </div>
+
+         <div *ngIf="loginForm.get('password')?.errors?.['required'] && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)"
+          class="text-red-600 font-semibold">
+           Senha é obrigatório.
+         </div>
+
+         <div class="card felx justify-content-center mt-3">
+              <button type="submit" pButton pRipple label="Login"></button>
+         </div>
+         <span class=" flex justify-content-center align-content-center text-align-center
+            mt-3 text-red-600 font-semibold" (click)="loginCard = !loginCard" style="cursor: pointer;">Criar Conta </span>
+        </p-card>
+    </form>
+
+    <!--SIGNUP-->
+         <!--Login-->
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmitSignupForm()">
+      <p-card styleClass="mt-10" header="Criar Conta" subheader="Crie Já sua conta"
+       *ngIf="!loginCard"
+      >
+
+      <div class="flex justify-content-center align-content-center text-align-center">
+             <input type="text" formControlName="name" name="name" pInputText placeholder="nome" class="input-grande">
+      </div>
+      <div *ngIf="signupForm.get('name')?.errors?.['required'] && (signupForm.get('name')?.dirty || signupForm.get('name')?.touched)"
+      class="text-red-600 font-semibold">
+         Nome é obrigatório.
+      </div>
+
+
+      <div class="flex justify-content-center align-content-center text-align-center  mt-3">
+        <input formControlName="email" type="email" name="email" pInputText placeholder="Email" class="input-grande">
+      </div>
+
+      <div *ngIf="signupForm.get('email')?.errors?.['required'] && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched)"
+        class="text-red-600 font-semibold">
+         Email é obrigatório.
+      </div>
+
+     <div *ngIf="signupForm.get('email')?.errors?.['email'] && (signupForm.get('email')?.dirty || signupForm.get('email')?.touched)"
+             class="text-red-600 font-semibold">
+         Email deve ser um endereço de email válido.
+     </div>
+
+
+       <div class="flex justify-content-center align-content-center text-align-center mt-3">
+        <input formControlName="password" type="password" name="password" pInputText placeholder="Senha" class="input-grande">
+       </div>
+
+       <div *ngIf="signupForm.get('password')?.errors?.['required'] && (signupForm.get('password')?.dirty || signupForm.get('password')?.touched)"
+        class="text-red-600 font-semibold">
+         Senha é obrigatório.
+       </div>
+      <div class="card felx justify-content-center mt-3">
+           <button type="submit" pButton pRipple label="Criar Conta" [disabled]="!this.signupForm.valid"></button>
+      </div>
+      <span class=" flex justify-content-center align-content-center text-align-center
+         mt-3 text-red-600 font-semibold" style="cursor: pointer;"  (click)="loginCard = !loginCard">Fazer Login </span>
+     </p-card>
+ </form>
+    </div>
+  </div>
+</div>
+
+
