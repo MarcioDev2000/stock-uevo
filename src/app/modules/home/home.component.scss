@@ -1,38 +1,20 @@
-
-
-.grid
- {
-   background-image: url( '../../../../assets/sean-pollock-PhYq704ffdA-unsplash.jpg') !important;
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-position: center;
-   height: 100vh;
-   display: flex;
-   justify-content: center;
-   align-content: center;
- }
+.grid {
+  background-image: url("../../../assets/sean-pollock-PhYq704ffdA-unsplash.jpg") !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vmin;
+  width: 100vw;
+}
 
 @media screen and (min-width: 1400px) {
-      .grid{
-        background-position: top;
-      }
+  .grid {
+    background-position: top;
+  }
 }
 
-.p-card .p-card-body {
- height: 600px;
-}
-
-.container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-
-
-
-.input-grande
-{
-  width: 90%;
+@media screen and (max-width: 1000px) {
+  .grid {
+    height: 100vmax;
+  }
 }

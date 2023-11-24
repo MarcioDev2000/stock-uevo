@@ -5,6 +5,7 @@ import { SignupUserRequest } from 'src/app/models/interfaces/user/SignupUserRequ
 import { AuthRequest } from 'src/app/models/interfaces/user/auth/AuthRequest';
 import { UserService } from 'src/app/services/user/user.service';
 import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +29,11 @@ export class HomeComponent {
   })
 
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private cookieService: CookieService, private messageService: MessageService){}
+  constructor(private formBuilder: FormBuilder,
+    private userService: UserService,
+    private cookieService: CookieService,
+     private messageService: MessageService,
+     private route: Router){}
 
   onSubmitLoginForm():void{
 
@@ -37,8 +42,10 @@ export class HomeComponent {
           next:(response)=>{
 
             if(response){
-            this.cookieService.set('USER_INFO', response?.token);
+            this.cookieService.set('USER_INFO', response?.token);// informação do token
+            this.cookieService.set('USER_NAME', response?.name);  // nome do usuario
             this.loginForm.reset();
+            this.route.navigate(['/dashboard']);
 
             this.messageService.add({
               severity: 'success',
@@ -46,6 +53,7 @@ export class HomeComponent {
                detail: `Seja bem vindo ${response?.name}!`,
                life: 3000
             });
+
             }
           },
           error:(err) =>{
