@@ -33,6 +33,7 @@ export class ProductsService {
  * @returns Uma Observable<Array<GetAllProductsResponse>> representando os produtos filtrados.
  */
 
+  // Apenas vai mostrar produtos que a quantidade é maior que zero.
   getAllProducts(): Observable<Array<GetAllProductsResponse>>{
     return this.http.get<Array<GetAllProductsResponse>>(`${this.API_URL}/products`, this.httpOptions)
     .pipe(map((product)=> product.filter((data) => data?.amount > 0)))

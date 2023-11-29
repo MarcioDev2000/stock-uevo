@@ -18,6 +18,11 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren:() =>import('./modules/dasboard/dasboard.module').then((m) => m.DasboardModule),
     canActivate: [AuthGuard]
+  },
+  {
+     path: 'products',
+     loadChildren: () =>import('./modules/products/products.module').then((m) => m.ProductsModule),
+     canActivate: [AuthGuard]
   }
 ];
 
