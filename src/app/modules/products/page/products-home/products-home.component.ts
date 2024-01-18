@@ -72,7 +72,7 @@ export class ProductsHomeComponent implements OnInit, OnDestroy  {
                  width: '70%',
                  contentStyle: {overflow: 'auto'},
                  baseZIndex:10000,
-                 maximizable: true, 
+                 maximizable: true,
                   data: {
                     event: event,
                     productDatas: this.productsDatas
@@ -125,17 +125,6 @@ export class ProductsHomeComponent implements OnInit, OnDestroy  {
          })
        }
  }
-
-
-
-
-
-
-
-
-
-
-
 
 
   ngOnDestroy(): void {
